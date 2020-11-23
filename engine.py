@@ -1,14 +1,12 @@
-def create_board(width, height):
-    '''
-    Creates a new game board based on input parameters.
+from Global import *
 
-    Args:
-    int: The width of the board
-    int: The height of the board
-
-    Returns:
-    list: Game board
-    '''
+def create_board(level_name):
+    map_path = Global_class.get_file_path(level_name)
+    with open(map_path,"r") as file:
+        file_text = file.read().split("\n")
+        for row in range(len(file_text)):
+            file_text[row] = list(file_text[row])
+        return file_text
     pass
 
 

@@ -1,8 +1,5 @@
-def display_board(board):
-    '''
-    Displays complete game board on the screen
-
-    Returns:
-    Nothing
-    '''
-    pass
+def display_board(board = list()):
+    for row in board:
+        for col in row:
+            print(col, end="")
+        print()
