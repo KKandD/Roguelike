@@ -29,16 +29,18 @@ class Player():
         while fight_result == 'L':
             if opponent == 'hobbit':
                 self.hit_count -= 1
-                fight_result = Player.fight_randomness(self)
-                continue
             elif opponent =='bombur':
-                self.hit_count -= 5
+                self.hit_count -= 4
+            if self.hit_count == 0:
+                break
+            else:
                 fight_result = Player.fight_randomness(self)
                 continue
-        if opponent == 'hobbit':
-            self.hit_count -= 1
-        else:
-            self.hit_count -= 5
+        if fight_result == 'H':
+            if opponent == 'hobbit':
+                self.hit_count -= 1
+            else:
+                self.hit_count -= 4
     
     def pick_fish(self):
         self.hit_count += 2
