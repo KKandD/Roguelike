@@ -15,8 +15,35 @@ class Player():
         self.hit_count = hit_count
         self.name = name
         self.icon = icon
-        
+
+def if_button_pressed():
+    possible_letter_choice = [b'w', b's', b'a', b'd']
+    if msvcrt.kbhit() and msvcrt.getch() in possible_letter_choice:
+        return msvcrt.getch()
+    else:
+        return False
+
+def get_keyboard_letter():
+    letter = ''
+    key = if_button_pressed()
+    if key:
+        if key == b'w':
+            letter = 'UP'
+        elif key == b's':
+            letter = 'DOWN'
+        elif key == b'a':
+            letter = 'LEFT'
+        elif key == b'd':
+            letter = 'RIGHT'
+
+        return letter
+    else:
+        return None
+
+
+
     def player_move(self):
+
         pass
 
     def fight_randomness(self):
