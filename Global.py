@@ -24,6 +24,10 @@ class Player():
         random_result = random.choice(hit_or_not)
         return random_result
 
+    def is_game_over(self):
+        if self.hit_count <= 0:
+            return True
+
     def is_fight(self, opponent, hit_count):
         fight_result = Player.fight_randomness(self)
         while fight_result == 'L':
