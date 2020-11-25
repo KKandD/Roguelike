@@ -46,9 +46,8 @@ class Player():
     def print_player_parameters(self):
         print(f'Player name {self.name}\nHit_count {self.hit_count}\nIcon {self.icon}' )
 
-    class Opponent():
-    
-        def __init__(self, strike_to_kill, name, icon):
-            self.strike_to_kill = strike_to_kill
-            self.name = name
-            self.icon = icon
+class Opponent(Player):
+
+    def __init__(self, strike_to_kill, name, icon):
+        super().__init__(Opponent, name, icon)
+        self.strike_to_kill = strike_to_kill
