@@ -15,36 +15,56 @@ class Player():
         self.hit_count = hit_count
         self.name = name
         self.icon = icon
+        self.current_position = [0, 0]
 
-def if_button_pressed():
-    possible_letter_choice = [b'w', b's', b'a', b'd']
-    if msvcrt.kbhit() and msvcrt.getch() in possible_letter_choice:
-        return msvcrt.getch()
-    else:
-        return False
+    def if_button_pressed(self):
+        possible_letter_choice = [b'w', b's', b'a', b'd']
+        if msvcrt.kbhit() and msvcrt.getch() in possible_letter_choice:
+            return msvcrt.getch()
+        else:
+            return False
 
-def get_keyboard_letter():
-    letter = ''
-    key = if_button_pressed()
-    if key:
-        if key == b'w':
-            letter = 'UP'
-        elif key == b's':
-            letter = 'DOWN'
-        elif key == b'a':
-            letter = 'LEFT'
-        elif key == b'd':
-            letter = 'RIGHT'
+    def get_keyboard_letter(self):
+        letter = ''
+        key = if_button_pressed()
+        if key:
+            if key == b'w':
+                letter = 'UP'
+            elif key == b's':
+                letter = 'DOWN'
+            elif key == b'a':
+                letter = 'LEFT'
+            elif key == b'd':
+                letter = 'RIGHT'
 
-        return letter
-    else:
-        return None
+            return letter
+        else:
+            return None
 
 
+
+    def is_move_valid(self):
+
+        return True
+
+    def check_enviroment(self, map, letter):
+        #check directions
+        if letter == 'UP':
+            return map[self.current_position[0] - 1][self.current_position[1]] # tu otrzymamy [[row], [col]] 
+        elif letter == 'DOWN':
+            return map[self.current_position[0] + 1][self.current_position[1]]
+        elif letter == "LEFT":
+            return map[self.current_position[0]][self.current_position[1] - 1]
+        elif letter == 'RIGHT':
+            return map[self.current_position[0]][self.current_position[1] + 1]
+            
 
     def player_move(self):
 
-        pass
+        letter = self.is_move_valid()
+        if letter:
+            
+            pass
 
     def fight_randomness(self):
         hit_or_not = ['H', 'H', 'H', 'H', 'L']
