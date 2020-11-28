@@ -1,6 +1,7 @@
 import os
 import random
 import msvcrt
+import keyboard
 
 class Global_class:
 
@@ -19,25 +20,25 @@ class Player():
         self.current_position = [0, 0]
 
     def if_button_pressed(self):
-        possible_letter_choice = [b'w', b's', b'a', b'd']
-        if msvcrt.kbhit() and msvcrt.getch() in possible_letter_choice:
-            return msvcrt.getch()
+        possible_letter_choice = ['w', 'a', 's', 'd']
+        key = keyboard.get_hotkey_name()
+        if key in possible_letter_choice:
+            return key
         else:
             return False
 
     def get_keyboard_letter(self):
         letter = ''
-        key = self.if_button_pressed() #or Player.if_button_pressed(self)
+        key = self.if_button_pressed()
         if key:
-            if key == b'w':
+            if key == 'w':
                 letter = 'UP'
-            elif key == b's':
+            elif key == 's':
                 letter = 'DOWN'
-            elif key == b'a':
+            elif key == 'a':
                 letter = 'LEFT'
-            elif key == b'd':
+            elif key == 'd':
                 letter = 'RIGHT'
-
             return letter
         else:
             return None
@@ -45,7 +46,7 @@ class Player():
 
 
     def is_move_valid(self):
-
+        
         return True
 
     def check_enviroment(self, map, letter):
