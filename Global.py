@@ -18,6 +18,7 @@ class Player():
         self.name = name
         self.icon = icon
         self.current_position = [0, 0]
+        self.current_icon = ' '
 
     def if_button_pressed(self):
         possible_letter_choice = ['w', 'a', 's', 'd']
@@ -44,29 +45,49 @@ class Player():
             return None
 
 
-
-    def is_move_valid(self):
-        
-        return True
+    def is_move_valid(self, map, letter):
+        enviroment_sign = self.check_enviroment(map, letter)
+        forbidden_list = ['+', '-', '|']
+        if enviroment_sign not in forbidden_list:
+            return True
+        else:
+            return False
 
     def check_enviroment(self, map, letter):
+       
         #check directions
         if letter == 'UP':
-            return map[self.current_position[0] - 1][self.current_position[1]] # tu otrzymamy [[row], [col]] 
+            return map[self.current_position[0] - 1][self.current_position[1]]
         elif letter == 'DOWN':
             return map[self.current_position[0] + 1][self.current_position[1]]
         elif letter == "LEFT":
             return map[self.current_position[0]][self.current_position[1] - 1]
         elif letter == 'RIGHT':
             return map[self.current_position[0]][self.current_position[1] + 1]
+
+    def next_position(self, letter):
+        if letter == 'UP':
+            new_position = [self.current_position[0] - 1, self.current_position[1]]
+        elif letter == 'DOWN':
+            new_position = [self.current_position[0] + 1, self.current_position[1]]
+        elif letter == "LEFT":
+            new_position = [self.current_position[0], self.current_position[1] - 1]
+        elif letter == 'RIGHT':
+            new_position = [self.current_position[0], self.current_position[1] + 1]
+        return new_position # [1, 1]
             
 
-    def player_move(self):
-
-        letter = self.is_move_valid()
-        if letter:
+    def player_move(self, map):
+        letter = self.get_keyboard_letter()
+        if self.is_move_valid(map, letter):
+            position = self.next_position(letter)
             
-            pass
+            map[self.current_position[0]][self.current_position[1]] = self.current_icon
+            self.current_icon = map[position[0]][position[1]]
+            self.current_position = position
+
+            map[position[0]][position[1]] = self.icon 
+    
 
     def fight_randomness(self):
         hit_or_not = ['H', 'H', 'H', 'H', 'L']
