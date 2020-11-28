@@ -80,7 +80,7 @@ class Player():
 
     def player_move(self, map):
         letter = self.get_keyboard_letter()
-        if self.is_move_valid(map, letter):
+        if letter and self.is_move_valid(map, letter):
             position = self.next_position(letter)
             
             map[self.current_position[0]][self.current_position[1]] = self.current_icon
