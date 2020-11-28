@@ -1,5 +1,6 @@
 import os
 import random
+import msvcrt
 
 class Global_class:
 
@@ -26,7 +27,7 @@ class Player():
 
     def get_keyboard_letter(self):
         letter = ''
-        key = if_button_pressed()
+        key = self.if_button_pressed() #or Player.if_button_pressed(self)
         if key:
             if key == b'w':
                 letter = 'UP'
