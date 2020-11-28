@@ -66,6 +66,7 @@ class Player():
             return map[self.current_position[0]][self.current_position[1] + 1]
 
     def next_position(self, letter):
+        new_position = []
         if letter == 'UP':
             new_position = [self.current_position[0] - 1, self.current_position[1]]
         elif letter == 'DOWN':
@@ -86,7 +87,8 @@ class Player():
             self.current_icon = map[position[0]][position[1]]
             self.current_position = position
 
-            map[position[0]][position[1]] = self.icon 
+            map[position[0]][position[1]] = self.icon
+        return map 
     
 
     def fight_randomness(self):

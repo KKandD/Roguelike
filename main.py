@@ -1,6 +1,8 @@
 import util
 import engine
 import ui
+import time
+from Global import *
 
 PLAYER_ICON = '@'
 PLAYER_START_X = 3
@@ -8,22 +10,25 @@ PLAYER_START_Y = 3
 
 LEVEL_NAME = "Maps\\TestMap.txt"
 
-
+'''
 def create_player():
-    '''
-    Creates a 'player' dictionary for storing all player related informations - i.e. player icon, player position.
-    Fell free to extend this dictionary!
-
-    Returns:
-    dictionary
-    '''
+   
     pass
+'''
+
 
 
 def main():
     #player = create_player()
-    board = engine.create_board(LEVEL_NAME)
-    ui.display_board(board)
+    map = engine.create_board(LEVEL_NAME)
+    player = Player(10, 'Gollum', '@')
+    #ui.display_board(board)
+    while True:
+
+        time.sleep(0.2)
+        os.system('cls')
+        ui.display_board(map)
+        map = player.player_move(map)
 
     """ util.clear_screen()
     is_running = True
