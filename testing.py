@@ -2,12 +2,14 @@ import msvcrt
 import time
 
 
-def if_button_pressed():
-    possible_letter_choice = [b'w', b's', b'a', b'd']
-    if msvcrt.kbhit() and msvcrt.getch() in possible_letter_choice:
-        return msvcrt.getch()
-    else:
-        return False
+def if_button_pressed():   
+    if msvcrt.kbhit():
+        possible_letter_choice = [b'w', b's', b'a', b'd']
+        key = msvcrt.getch()
+        if key not in possible_letter_choice:
+            return False
+        else:
+            return key
 
 def get_keyboard_letter():
     letter = ''
