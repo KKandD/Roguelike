@@ -17,28 +17,29 @@ class Player():
         self.hit_count = hit_count
         self.name = name
         self.icon = icon
-        self.current_position = [0, 0]
+        self.current_position = [1, 1]
         self.current_icon = ' '
 
-    def if_button_pressed(self):
-        possible_letter_choice = ['w', 'a', 's', 'd']
-        key = keyboard.get_hotkey_name()
-        if key in possible_letter_choice:
-            return key
-        else:
-            return False
+    def if_button_pressed(self):   
+        if msvcrt.kbhit():
+            possible_letter_choice = [b'w', b's', b'a', b'd']
+            key = msvcrt.getch()
+            if key not in possible_letter_choice:
+                return False
+            else:
+                return key
 
     def get_keyboard_letter(self):
         letter = ''
         key = self.if_button_pressed()
         if key:
-            if key == 'w':
+            if key == b'w':
                 letter = 'UP'
-            elif key == 's':
+            elif key == b's':
                 letter = 'DOWN'
-            elif key == 'a':
+            elif key == b'a':
                 letter = 'LEFT'
-            elif key == 'd':
+            elif key == b'd':
                 letter = 'RIGHT'
             return letter
         else:

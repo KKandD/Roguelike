@@ -25,7 +25,7 @@ def main():
     #ui.display_board(board)
     while True:
 
-        time.sleep(0.2)
+        time.sleep(1)
         os.system('cls')
         ui.display_board(map)
         map = player.player_move(map)

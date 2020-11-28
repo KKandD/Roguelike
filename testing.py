@@ -23,7 +23,6 @@ def get_keyboard_letter():
             letter = 'LEFT'
         elif key == b'd':
             letter = 'RIGHT'
-
         return letter
     else:
         return None
