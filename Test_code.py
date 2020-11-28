@@ -26,8 +26,6 @@ def get_keyboard_letter():
         return None
 
 while True:
-    letter = get_keyboard_letter()
-    if letter:
-        print(letter)
-    time.sleep(0.2)
+    time.sleep(0.5)
+    print(get_keyboard_letter())
 
