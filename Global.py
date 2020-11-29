@@ -31,6 +31,7 @@ class Player():
         self.current_icon = ' '
         self.walk_sound = arcade.load_sound("sounds/footstep3.ogg")
         self.eat_sound = arcade.load_sound("sounds/eating_fish.ogg")
+        self.door_sound = arcade.load_sound("sounds/door_opening2.ogg")
 
     def if_button_pressed(self):   
         if msvcrt.kbhit():
@@ -94,9 +95,12 @@ class Player():
         elif self.current_icon == 'F' and self.hit_count < 10:
             self.pick_fish()
             return ' '       
+        if self.current_icon == '/' or self.current_icon == '\\':
+            self.door_sound.play()
+            return self.current_icon
         else:
             return ' '
-    
+
 
     def player_move(self, map): 
         letter = self.get_keyboard_letter()
