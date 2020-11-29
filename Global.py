@@ -30,7 +30,7 @@ class Player():
         self.current_position = [1, 1]
         self.current_icon = ' '
         self.walk_sound = arcade.load_sound("sounds/footstep.ogg")
-        self.eat_sound = arcade.load_sound("sound/eating_fish.ogg")
+        self.eat_sound = arcade.load_sound("sounds/eating_fish.ogg")
 
     def if_button_pressed(self):   
         if msvcrt.kbhit():
