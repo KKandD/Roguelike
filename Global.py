@@ -79,17 +79,40 @@ class Player():
         return new_position # [1, 1]
             
 
-    def player_move(self, map):
+    def check_for_item(self, map, new_position):
+        self.current_icon = map[new_position[0]][new_position[1]]
+        if self.current_icon == 'F' and self.hit_count == 10:
+            return self.current_icon
+        else:
+            return ' '
+
+    def player_move(self, map): 
         letter = self.get_keyboard_letter()
         if letter and self.is_move_valid(map, letter):
-            position = self.next_position(letter)
-            
-            map[self.current_position[0]][self.current_position[1]] = self.current_icon
-            self.current_icon = map[position[0]][position[1]]
-            self.current_position = position
+            position = self.next_position(letter) # nowa pozycja
 
-            map[position[0]][position[1]] = self.icon
+            map[self.current_position[0]][self.current_position[1]] = self.current_icon # do mapy na obecnej pozycji przypisujemy aktualną ikonę
+
+            #self.current_icon = map[position[0]][position[1]] # zmieniamy aktualną ikonę na ikonę z mapy o nowej pozycji  Niech Będzie F
+            self.current_icon = self.check_for_item(map, position)
+
+            self.current_position = position # uaktualniamy pozycję o nową pozycję
+
+            map[position[0]][position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
+
         return map 
+
+    # def player_move(self, map):
+    #     letter = self.get_keyboard_letter()
+    #     if letter and self.is_move_valid(map, letter):
+    #         position = self.next_position(letter)
+            
+    #         map[self.current_position[0]][self.current_position[1]] = self.current_icon
+    #         self.current_icon = map[position[0]][position[1]]
+    #         self.current_position = position
+
+    #         map[position[0]][position[1]] = self.icon
+    #     return map 
     
 
     def fight_randomness(self):

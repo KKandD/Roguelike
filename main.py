@@ -21,11 +21,11 @@ def create_player():
 def main():
     #player = create_player()
     map = engine.create_board(LEVEL_NAME)
-    player = Player(10, 'Gollum', '@')
+    player = Player(9, 'Gollum', '@')
     #ui.display_board(board)
     while True:
 
-        time.sleep(1)
+        time.sleep(0.4)
         os.system('cls')
         ui.display_board(map)
         map = player.player_move(map)
