@@ -29,7 +29,7 @@ class Player():
         self.icon = icon
         self.current_position = [1, 1]
         self.current_icon = ' '
-        self.walk_sound = arcade.load_sound("sounds/footstep.ogg")
+        self.walk_sound = arcade.load_sound("sounds/footstep3.ogg")
         self.eat_sound = arcade.load_sound("sounds/eating_fish.ogg")
 
     def if_button_pressed(self):   
@@ -58,17 +58,14 @@ class Player():
             return None
 
 
-    def is_move_valid(self, map, letter):
-        enviroment_sign = self.check_enviroment(map, letter)
+    def is_move_valid(self, letter):
         forbidden_list = ['+', '-', '|']
-        if enviroment_sign not in forbidden_list:
+        if letter not in forbidden_list:
             return True
         else:
             return False
 
-    def check_enviroment(self, map, letter):
-       
-        #check directions
+    def get_new_position_icon(self, map, letter):
         if letter == 'UP':
             return map[self.current_position[0] - 1][self.current_position[1]]
         elif letter == 'DOWN':
@@ -89,10 +86,9 @@ class Player():
         elif letter == 'RIGHT':
             new_position = [self.current_position[0], self.current_position[1] + 1]
         return new_position # [1, 1]
-            
 
-    def check_for_item(self, map, new_position):
-        self.current_icon = map[new_position[0]][new_position[1]]
+    def check_for_item(self, icon):
+        self.current_icon = icon
         if self.current_icon == 'F' and self.hit_count == 10:
             return self.current_icon
         elif self.current_icon == 'F' and self.hit_count < 10:
@@ -102,20 +98,19 @@ class Player():
             return ' '
     
 
-
     def player_move(self, map): 
         letter = self.get_keyboard_letter()
-        if letter and self.is_move_valid(map, letter):
-            position = self.next_position(letter) # nowa pozycja
-
+        next_field_icon = self.get_new_position_icon(map, letter)
+        if letter and self.is_move_valid(next_field_icon):
+            new_position = self.next_position(letter) # nowa pozycja
+            
             map[self.current_position[0]][self.current_position[1]] = self.current_icon # do mapy na obecnej pozycji przypisujemy aktualną ikonę
-
-            #self.current_icon = map[position[0]][position[1]] # zmieniamy aktualną ikonę na ikonę z mapy o nowej pozycji  Niech Będzie F
-            self.current_icon = self.check_for_item(map, position)
-
-            self.current_position = position # uaktualniamy pozycję o nową pozycję
+            self.current_icon = self.check_for_item(next_field_icon)
+            #self.current_icon = map[new_position[0]][new_position[1]] # zmieniamy aktualną ikonę na ikonę z mapy o nowej pozycji  Niech Będzie F
+            
+            self.current_position = new_position # uaktualniamy pozycję o nową pozycję
             self.walk_sound.play()
-            map[position[0]][position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
+            map[new_position[0]][new_position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
 
         return map 
 
