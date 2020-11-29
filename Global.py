@@ -106,30 +106,13 @@ class Player():
         letter = self.get_keyboard_letter()
         next_field_icon = self.get_new_position_icon(map, letter)
         if letter and self.is_move_valid(next_field_icon):
-            new_position = self.next_position(letter) # nowa pozycja
-            
-            map[self.current_position[0]][self.current_position[1]] = self.current_icon # do mapy na obecnej pozycji przypisujemy aktualną ikonę
+            new_position = self.next_position(letter)
+            map[self.current_position[0]][self.current_position[1]] = self.current_icon 
             self.current_icon = self.check_for_item(next_field_icon)
-            #self.current_icon = map[new_position[0]][new_position[1]] # zmieniamy aktualną ikonę na ikonę z mapy o nowej pozycji  Niech Będzie F
-            
-            self.current_position = new_position # uaktualniamy pozycję o nową pozycję
+            self.current_position = new_position
             self.walk_sound.play()
-            map[new_position[0]][new_position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
-
+            map[new_position[0]][new_position[1]] = self.icon 
         return map 
-
-    # def player_move(self, map):
-    #     letter = self.get_keyboard_letter()
-    #     if letter and self.is_move_valid(map, letter):
-    #         position = self.next_position(letter)
-            
-    #         map[self.current_position[0]][self.current_position[1]] = self.current_icon
-    #         self.current_icon = map[position[0]][position[1]]
-    #         self.current_position = position
-
-    #         map[position[0]][position[1]] = self.icon
-    #     return map 
-    
 
     def fight_randomness(self):
         hit_or_not = ['H', 'H', 'H', 'H', 'L']
