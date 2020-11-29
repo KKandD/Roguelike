@@ -11,6 +11,13 @@ class Global_class:
         my_file = os.path.join(file_dir, file_name)
         return my_file
 
+class Items():
+    def __init__(self, fish_count, chapel_count):
+        self.fish_count = fish_count
+        self.chapel_count = chapel_count
+        self.dictionary = {'F' : fish_count, 'C' : chapel_count}
+        
+
 class Player():
 
     def __init__(self, hit_count, name, icon):
@@ -85,7 +92,7 @@ class Player():
             return self.current_icon
         elif self.current_icon == 'F' and self.hit_count < 10:
             self.pick_fish()
-            return ' '
+            return ' '       
         else:
             return ' '
 

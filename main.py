@@ -21,7 +21,9 @@ def create_player():
 def main():
     #player = create_player()
     map = engine.create_board(LEVEL_NAME)
-    player = Player(9, 'Gollum', '@')
+    player = Player(8, 'Gollum', '@')
+    items = Items(30, 3)
+    items_dictionary = items.dictionary
     #ui.display_board(board)
     while True:
 
@@ -29,6 +31,7 @@ def main():
         os.system('cls')
         ui.display_board(map)
         print(f"Gollum\'s energy: {player.hit_count}")
+        print(items_dictionary)
         map = player.player_move(map)
 
 
