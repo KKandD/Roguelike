@@ -28,7 +28,9 @@ def main():
         time.sleep(0.4)
         os.system('cls')
         ui.display_board(map)
+        print(f"Gollum\'s energy: {player.hit_count}")
         map = player.player_move(map)
+
 
     """ util.clear_screen()
     is_running = True

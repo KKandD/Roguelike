@@ -83,6 +83,9 @@ class Player():
         self.current_icon = map[new_position[0]][new_position[1]]
         if self.current_icon == 'F' and self.hit_count == 10:
             return self.current_icon
+        elif self.current_icon == 'F' and self.hit_count < 10:
+            self.pick_fish()
+            return ' '
         else:
             return ' '
 
@@ -143,7 +146,7 @@ class Player():
                 self.hit_count -= 4
     
     def pick_fish(self):
-        self.hit_count += 2
+        self.hit_count += 1
 
     def print_player_parameters(self):
         print(f'Player name {self.name}\nHit_count {self.hit_count}\nIcon {self.icon}' )
