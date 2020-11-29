@@ -2,6 +2,7 @@ import os
 import random
 import msvcrt
 import keyboard
+import arcade
 
 class Global_class:
 
@@ -16,6 +17,8 @@ class Items():
         self.fish_count = fish_count
         self.chapel_count = chapel_count
         self.dictionary = {'F' : fish_count, 'C' : chapel_count}
+
+    
         
 
 class Player():
@@ -26,6 +29,7 @@ class Player():
         self.icon = icon
         self.current_position = [1, 1]
         self.current_icon = ' '
+        self.walk_sound = arcade.load_sound("sounds/footstep.ogg")
 
     def if_button_pressed(self):   
         if msvcrt.kbhit():
@@ -107,8 +111,9 @@ class Player():
             self.current_icon = self.check_for_item(map, position)
 
             self.current_position = position # uaktualniamy pozycję o nową pozycję
-
+            self.walk_sound.play()
             map[position[0]][position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
+            
 
         return map 
 
