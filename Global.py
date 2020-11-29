@@ -30,6 +30,7 @@ class Player():
         self.current_position = [1, 1]
         self.current_icon = ' '
         self.walk_sound = arcade.load_sound("sounds/footstep.ogg")
+        self.eat_sound = arcade.load_sound("sound/eating_fish.ogg")
 
     def if_button_pressed(self):   
         if msvcrt.kbhit():
@@ -99,6 +100,8 @@ class Player():
             return ' '       
         else:
             return ' '
+    
+
 
     def player_move(self, map): 
         letter = self.get_keyboard_letter()
@@ -113,7 +116,6 @@ class Player():
             self.current_position = position # uaktualniamy pozycję o nową pozycję
             self.walk_sound.play()
             map[position[0]][position[1]] = self.icon # na nowej pozycji stawiamy naszą ikonę
-            
 
         return map 
 
@@ -159,6 +161,8 @@ class Player():
     
     def pick_fish(self):
         self.hit_count += 1
+        self.eat_sound.play()
+
 
     def print_player_parameters(self):
         print(f'Player name {self.name}\nHit_count {self.hit_count}\nIcon {self.icon}' )
