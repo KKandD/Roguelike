@@ -2,6 +2,7 @@ import util
 import engine
 import ui
 import time
+import fov
 from Global import *
 
 PLAYER_ICON = '@'
@@ -33,8 +34,7 @@ def main():
         print(f"Gollum\'s energy: {player.hit_count}")
         print(items_dictionary)
         map = player.player_move(map)
-
-
+    
     """ util.clear_screen()
     is_running = True
     while is_running:
