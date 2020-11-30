@@ -17,9 +17,7 @@ class Items():
         self.fish_count = fish_count
         self.chapel_count = chapel_count
         self.dictionary = {'F' : fish_count, 'C' : chapel_count}
-
-    
-        
+ 
 
 class Player():
 
@@ -32,7 +30,7 @@ class Player():
         self.walk_sound = arcade.load_sound("sounds/footstep3.ogg")
         self.eat_sound = arcade.load_sound("sounds/eating_fish.ogg")
         self.door_sound = arcade.load_sound("sounds/door_opening2.ogg")
-
+        self.fight_sound = arcade.load_sound("sounds/fight.ogg")
     def if_button_pressed(self):   
         if msvcrt.kbhit():
             possible_letter_choice = [b'w', b's', b'a', b'd']
@@ -57,7 +55,6 @@ class Player():
             return letter
         else:
             return None
-
 
     def is_move_valid(self, letter):
         forbidden_list = ['+', '-', '|']
@@ -101,8 +98,30 @@ class Player():
         else:
             return ' '
 
+    def player_close_enviroment_positions(self, position):
+        player_position = position
+        positions_list = []
+        for row in range(-1, 2):
+            for col in range(-1, 2):
+                positions_list.append([player_position[0] + row, player_position[1] + col])
+        return positions_list
 
-    def player_move(self, map): 
+    def check_for_fight(self, map, position):
+        position_list = self.player_close_enviroment_positions(position)
+        for element in position_list:
+            icon = map[element[0]][element[1]]
+            if icon == 'H':
+                return element
+        else:
+            return False
+
+    def player_move(self, map):
+        position = self.current_position
+        if self.check_for_fight(map, position):
+            self.fight_sound.play()
+            self.is_fight()
+            element = self.check_for_fight(map, position)
+            map[element[0]][element[1]] = ' '
         letter = self.get_keyboard_letter()
         next_field_icon = self.get_new_position_icon(map, letter)
         if letter and self.is_move_valid(next_field_icon):
@@ -115,7 +134,7 @@ class Player():
         return map 
 
     def fight_randomness(self):
-        hit_or_not = ['H', 'H', 'H', 'H', 'L']
+        hit_or_not = ['h', 'h', 'h', 'h', 'l']
         random_result = random.choice(hit_or_not)
         return random_result
 
@@ -123,34 +142,22 @@ class Player():
         if self.hit_count <= 0:
             return True
 
-    def is_fight(self, opponent, hit_count):
+    def is_fight(self):
         fight_result = Player.fight_randomness(self)
-        while fight_result == 'L':
-            if opponent == 'hobbit':
-                self.hit_count -= 1
-            elif opponent =='bombur':
-                self.hit_count -= 4
+        while fight_result == 'l':
+            self.hit_count -= 1
             if self.hit_count == 0:
                 break
             else:
                 fight_result = Player.fight_randomness(self)
                 continue
-        if fight_result == 'H':
-            if opponent == 'hobbit':
+        if fight_result == 'h':
                 self.hit_count -= 1
-            else:
-                self.hit_count -= 4
-    
+
     def pick_fish(self):
         self.hit_count += 1
         self.eat_sound.play()
 
-
     def print_player_parameters(self):
         print(f'Player name {self.name}\nHit_count {self.hit_count}\nIcon {self.icon}' )
 
-class Opponent(Player):
-
-    def __init__(self, strike_to_kill, name, icon):
-        super().__init__(Opponent, name, icon)
-        self.strike_to_kill = strike_to_kill
