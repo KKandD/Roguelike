@@ -3,6 +3,8 @@ import engine
 import ui
 import time
 from Global import *
+from Player import *
+from Enemy import *
 
 PLAYER_ICON = '@'
 PLAYER_START_X = 3
@@ -19,35 +21,29 @@ def create_player():
 
 
 def main():
-    #player = create_player()
     map = engine.create_board(LEVEL_NAME)
-    player = Player(8, 'Gollum', '@')
-    items = Items(30, 3)
-    items_dictionary = items.dictionary
-    #ui.display_board(board)
+    player = Golum(8, 'Gollum', '@')
+    enemy_list = lokking_for_enemy(map)
     while True:
-
-        time.sleep(0.4)
+        time.sleep(0.1)
         os.system('cls')
-        ui.display_board(map)
-        print(f"Gollum\'s energy: {player.hit_count}")
-        print(items_dictionary)
+        ui.display_screen(map, player)
         map = player.player_move(map)
+        map = enemys_move(map, enemy_list)
 
+def lokking_for_enemy(map):
+    enemy_list = []
+    for row in range(len(map)):
+        for col in range(len(map[row])):
+            if map[row][col] == "H":
+                enemy_list.append(Hobbit([row, col], "Hobbit", map[row][col]))
+    return enemy_list
 
-    """ util.clear_screen()
-    is_running = True
-    while is_running:
-        engine.put_player_on_board(board, player)
-        ui.display_board(board)
-
-        key = util.key_pressed()
-        if key == 'q':
-            is_running = False
-        else:
-            pass
-        util.clear_screen() """
-
+def enemys_move(map, enemy_list):
+    if len(enemy_list) > 0:
+        for enemy in enemy_list:
+            map = enemy.move(map)
+    return map
 
 if __name__ == '__main__':
     main()
