@@ -97,11 +97,12 @@ class Golum(Global_class):
         else:
             return False
 
-    def player_move(self, map):
+    def player_move(self, map, enemy_list):
         position = self.current_position
         if self.check_for_fight(map, position):
             self.fight_sound.play()
             self.is_fight()
+            enemy_list=  self.remove_enemy_from_list(map, position, enemy_list)
             element = self.check_for_fight(map, position)
             map[element[0]][element[1]] = ' '
         letter = self.get_keyboard_letter()
@@ -113,7 +114,17 @@ class Golum(Global_class):
             self.current_position = new_position
             self.walk_sound.play()
             map[new_position[0]][new_position[1]] = self.icon 
-        return map 
+        return map, enemy_list
+    
+    def remove_enemy_from_list(self, map, position, enemy_list):
+        position_list = self.player_close_enviroment_positions(position)
+        for element in position_list:
+            icon = map[element[0]][element[1]]
+            if icon == 'H':
+                for element_object in enemy_list:
+                    if element_object.current_position == [element[0], element[1]]:
+                        enemy_list.remove(element_object)
+        return enemy_list
 
     def fight_randomness(self):
         hit_or_not = ['h', 'h', 'h', 'h', 'l']

@@ -15,7 +15,8 @@ def display_screen(board, player):
 
     for row in board:
         for col in row:
-            print(walls_and_doors[col], end="")
+            #print(walls_and_doors[col], end="")
+            print(col, end="")
         print()
     print_player_data(player.name, player.current_position, player.hit_count, player.score)
 

@@ -23,13 +23,12 @@ def create_player():
 def main():
     map = engine.create_board(LEVEL_NAME)
     player = Golum(8, 'Gollum', '@')
-    
+    enemy_list = lokking_for_enemy(map)
     while True:
-        time.sleep(0.0)
+        time.sleep(0.02)
         os.system('cls')
         ui.display_screen(map, player)
-        map = player.player_move(map)
-        enemy_list = lokking_for_enemy(map)
+        map, enemy_list = player.player_move(map, enemy_list)
         map = enemys_move(map, enemy_list)
 
 def lokking_for_enemy(map):
