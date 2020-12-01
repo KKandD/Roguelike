@@ -27,10 +27,10 @@ class Player():
         self.icon = icon
         self.current_position = [1, 1]
         self.current_icon = ' '
-        self.walk_sound = arcade.load_sound("sounds/footstep3.ogg")
-        self.eat_sound = arcade.load_sound("sounds/eating_fish.ogg")
-        self.door_sound = arcade.load_sound("sounds/door_opening2.ogg")
-        self.fight_sound = arcade.load_sound("sounds/fight.ogg")
+        self.walk_sound = arcade.load_sound(Global_class.get_file_path("sounds/footstep3.ogg"))
+        self.eat_sound = arcade.load_sound(Global_class.get_file_path("sounds/eating_fish.ogg"))
+        self.door_sound = arcade.load_sound(Global_class.get_file_path("sounds/door_opening2.ogg"))
+        self.fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight.ogg"))
     def if_button_pressed(self):   
         if msvcrt.kbhit():
             possible_letter_choice = [b'w', b's', b'a', b'd']
