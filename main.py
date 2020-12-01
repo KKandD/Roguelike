@@ -2,7 +2,6 @@ import util
 import engine
 import ui
 import time
-import fov
 from Global import *
 
 PLAYER_ICON = '@'
@@ -25,7 +24,6 @@ def main():
     player = Player(8, 'Gollum', '@')
     items = Items(30, 3)
     items_dictionary = items.dictionary
-    fov
     #ui.display_board(board)
     while True:
 
