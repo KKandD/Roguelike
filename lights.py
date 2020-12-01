@@ -46,7 +46,7 @@ class MyGame(arcade.Window):
         self.wall_list = arcade.SpriteList()
 
         # Create player sprite
-        self.player_sprite = arcade.Sprite(":resources:images/animated_characters/female_person/femalePerson_idle.png", 0.4)
+        self.player_sprite = arcade.Sprite(":resources:images/animated_characters/zombie/zombie_idle.png", 0.4)
         self.player_sprite.center_x = 64
         self.player_sprite.center_y = 270
         self.player_list.append(self.player_sprite)
@@ -67,102 +67,6 @@ class MyGame(arcade.Window):
         # We can also set the background color that will be lit by lights,
         # but in this instance we just want a black background
         self.light_layer.set_background_color(arcade.color.BLACK)
-
-        # Here we create a bunch of lights.
-
-        # Create a small white light
-        x = 100
-        y = 200
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.WHITE
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        # Create an overlapping, large white light
-        x = 300
-        y = 150
-        radius = 200
-        color = arcade.csscolor.WHITE
-        mode = 'soft'
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        # Create three, non-overlapping RGB lights
-        x = 50
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.RED
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 250
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.GREEN
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 450
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.BLUE
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        # Create three, overlapping RGB lights
-        x = 650
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.RED
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 750
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.GREEN
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 850
-        y = 450
-        radius = 100
-        mode = 'soft'
-        color = arcade.csscolor.BLUE
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        # Create three, overlapping RGB lights
-        # But 'hard' lights that don't fade out.
-        x = 650
-        y = 150
-        radius = 100
-        mode = 'hard'
-        color = arcade.csscolor.RED
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 750
-        y = 150
-        radius = 100
-        mode = 'hard'
-        color = arcade.csscolor.GREEN
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
-
-        x = 850
-        y = 150
-        radius = 100
-        mode = 'hard'
-        color = arcade.csscolor.BLUE
-        light = Light(x, y, radius, color, mode)
-        self.light_layer.add(light)
 
         # Create a light to follow the player around.
         # We'll position it later, when the player moves.
