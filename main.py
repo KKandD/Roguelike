@@ -25,7 +25,7 @@ def main():
     player = Golum(8, 'Gollum', '@')
     
     while True:
-        time.sleep(0.1)
+        time.sleep(0.0)
         os.system('cls')
         ui.display_screen(map, player)
         map = player.player_move(map)
