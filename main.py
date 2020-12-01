@@ -16,8 +16,6 @@ def create_player():
     pass
 '''
 
-
-
 def main():
     #player = create_player()
     map = engine.create_board(LEVEL_NAME)

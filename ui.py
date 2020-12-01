@@ -16,9 +16,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-print(f"{bcolors.WARNING}Warning: No active frommets remain. Continue?{bcolors.ENDC}")
-map = engine.create_board(LEVEL_NAME)
-
 # def color_map(bcolors, map):
 #     walls_and_doors = ["/", "\\", "-", "+", "|"]
 #     for element in map:
