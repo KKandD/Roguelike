@@ -129,7 +129,7 @@ class Golum(Global_class):
         return enemy_list
 
     def fight_randomness(self):
-        hit_or_not = ['h', 'h', 'h' 'l', 'l', 'l']
+        hit_or_not = ['h', 'l']
         random_result = random.choice(hit_or_not)
         return random_result
 
