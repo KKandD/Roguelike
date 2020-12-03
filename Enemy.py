@@ -9,7 +9,7 @@ class Hobbit(Global_class):
         self.curent_icon = " "
         self.curent_direction = ""
         self.step_count = 0
-        self.barrier = ["/", "\\", "|", "-", "+"]
+        self.barrier = ["/", "\\", "|", "-", "+", "H", "F"]
     
     def move(self, map):
         if self.curent_direction == "" and self.step_count == 0:
@@ -60,3 +60,7 @@ class Hobbit(Global_class):
         elif letter == 'RIGHT':
             return map[self.current_position[0]][self.current_position[1] + 1]
 
+class Bumbur(Hobbit):
+    pass
+
+#bumbur = Bumbur()
