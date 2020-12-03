@@ -126,6 +126,8 @@ class Golum(Global_class):
                 for element_object in enemy_list:
                     if element_object.current_position == [element[0], element[1]]:
                         enemy_list.remove(element_object)
+                        if len(enemy_list) == 1:
+                            map[5][114] = '/'
         return enemy_list
 
     def fight_randomness(self):

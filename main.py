@@ -30,6 +30,7 @@ def main():
         ui.display_screen(map, player)
         map, enemy_list = player.player_move(map, enemy_list)
         map = enemys_move(map, enemy_list)
+        
 
 def lokking_for_enemy(map):
     enemy_list = []
