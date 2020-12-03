@@ -14,6 +14,7 @@ class Golum(Global_class):
         self.fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight.ogg"))
         self.still_fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight_in_progress.ogg"))
         self.score = 0
+        #self.questions_dictionary = 
 
     def if_button_pressed(self):   
         if msvcrt.kbhit():
@@ -71,16 +72,32 @@ class Golum(Global_class):
 
     def check_for_item(self, icon):
         self.current_icon = icon
-        if self.current_icon == 'F' and self.hit_count == 10:
+        if self.current_icon == 'F' and self.hit_count == 30:
             return self.current_icon
-        elif self.current_icon == 'F' and self.hit_count < 10:
+        elif self.current_icon == 'F' and self.hit_count < 30:
             self.pick_fish()
             return ' '       
-        if self.current_icon == '/' or self.current_icon == '\\':
+        elif self.current_icon == '/' or self.current_icon == '\\':
             self.door_sound.play()
             return self.current_icon
+        # elif self.current_icon == 'Q':
+        #     question = random.choice(questions_dictionary(self))
+        #     self.ask_question(question)
+        #     if correct_answear:
+        #         self.hit_count += 2
+        #         return ' '
+        #     else:
+        #         self.hit_count -= 1
+        #         return self.current_icon
         else:
             return ' '
+
+    # def ask_question(self, question):
+    #     player_input = input()
+    #     pass
+
+    # def 
+
 
     def player_close_enviroment_positions(self, position):
         player_position = position
@@ -127,7 +144,7 @@ class Golum(Global_class):
                     if element_object.current_position == [element[0], element[1]]:
                         enemy_list.remove(element_object)
                         if len(enemy_list) == 1:
-                            map[5][114] = '/'
+                            map[11][75] = '/'
         return enemy_list
 
     def fight_randomness(self):

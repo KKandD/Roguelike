@@ -9,7 +9,7 @@ class Hobbit(Global_class):
         self.curent_icon = " "
         self.curent_direction = ""
         self.step_count = 0
-        self.barrier = ["/", "\\", "|", "-", "+", "H", "F"]
+        self.barrier = ["/", "\\", "|", "-", "+", "H", "F", "Q"]
     
     def move(self, map):
         if self.curent_direction == "" and self.step_count == 0:
