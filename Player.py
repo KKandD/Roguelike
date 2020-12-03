@@ -14,7 +14,7 @@ class Golum(Global_class):
         self.fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight.ogg"))
         self.still_fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight_in_progress.ogg"))
         self.score = 0
-        
+
     def if_button_pressed(self):   
         if msvcrt.kbhit():
             possible_letter_choice = [b'w', b's', b'a', b'd']
@@ -129,7 +129,7 @@ class Golum(Global_class):
         return enemy_list
 
     def fight_randomness(self):
-        hit_or_not = ['h', 'h', 'h', 'l', 'l']
+        hit_or_not = ['h', 'h', 'h' 'l', 'l', 'l']
         random_result = random.choice(hit_or_not)
         return random_result
 
