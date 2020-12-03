@@ -3,6 +3,7 @@ import random
 import msvcrt
 import keyboard
 import arcade
+import time
 
 class Global_class:
 

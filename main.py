@@ -22,7 +22,7 @@ def create_player():
 
 def main():
     map = engine.create_board(LEVEL_NAME)
-    player = Golum(8, 'Gollum', '@')
+    player = Golum(30, 'Gollum', '@')
     enemy_list = lokking_for_enemy(map)
     while True:
         time.sleep(0.02)
@@ -37,6 +37,8 @@ def lokking_for_enemy(map):
         for col in range(len(map[row])):
             if map[row][col] == "H":
                 enemy_list.append(Hobbit([row, col], "Hobbit", map[row][col]))
+            elif map[row][col]  == "B":
+                enemy_list.append(Bumbur([row, col], "Bumbur", map[row][col]))
     return enemy_list
 
 def enemys_move(map, enemy_list):

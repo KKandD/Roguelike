@@ -21,8 +21,8 @@ def display_screen(board, player):
     print_player_data(player.name, player.current_position, player.hit_count, player.score)
 
 
-def print_player_data(name = "Player", position = [0,0], hit_count = 0, score = 0):
-    information_text = f"| Player name: {name} | {name} hit count: {hit_count} | {name} score: {score} | {name} position: {position} |"
+def print_player_data(name = "Player", position = [0,0], hit_count = 0, score = 0, key = 0):
+    information_text = f"| Player name: {name} | {name} hit count: {hit_count} | {name} score: {score} | {name} position: {position} | key: {key} |"
     print("-" * len(information_text) + "\n" + information_text + "\n" + "-" * len(information_text))
 
 class Style():

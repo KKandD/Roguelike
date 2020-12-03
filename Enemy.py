@@ -61,6 +61,9 @@ class Hobbit(Global_class):
             return map[self.current_position[0]][self.current_position[1] + 1]
 
 class Bumbur(Hobbit):
-    pass
+    def __init__(self, position, name, icon):
+        super().__init__(position, name, icon)
+        self.barrier = ["|", "-", "+", "H", "F"]
 
-#bumbur = Bumbur()
+
+

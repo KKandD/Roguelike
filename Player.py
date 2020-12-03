@@ -12,7 +12,9 @@ class Golum(Global_class):
         self.eat_sound = arcade.load_sound(Global_class.get_file_path("sounds/eating_fish.ogg"))
         self.door_sound = arcade.load_sound(Global_class.get_file_path("sounds/door_opening2.ogg"))
         self.fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight.ogg"))
+        self.still_fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight_in_progress.ogg"))
         self.score = 0
+        
     def if_button_pressed(self):   
         if msvcrt.kbhit():
             possible_letter_choice = [b'w', b's', b'a', b'd']
@@ -100,7 +102,7 @@ class Golum(Global_class):
     def player_move(self, map, enemy_list):
         position = self.current_position
         if self.check_for_fight(map, position):
-            self.fight_sound.play()
+            #self.fight_sound.play()
             self.is_fight()
             enemy_list=  self.remove_enemy_from_list(map, position, enemy_list)
             element = self.check_for_fight(map, position)
@@ -127,7 +129,7 @@ class Golum(Global_class):
         return enemy_list
 
     def fight_randomness(self):
-        hit_or_not = ['h', 'h', 'h', 'h', 'l']
+        hit_or_not = ['h', 'h', 'h', 'l', 'l']
         random_result = random.choice(hit_or_not)
         return random_result
 
@@ -139,13 +141,16 @@ class Golum(Global_class):
         fight_result = self.fight_randomness()
         while fight_result == 'l':
             self.hit_count -= 1
+            self.still_fight_sound.play()
+            time.sleep(0.5)
             if self.hit_count == 0:
                 break
             else:
                 fight_result = self.fight_randomness()
                 continue
         if fight_result == 'h':
-                self.hit_count -= 1
+            self.hit_count -= 1
+            self.fight_sound.play()
         self.score += 3
 
     def pick_fish(self):
