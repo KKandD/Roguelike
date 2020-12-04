@@ -75,9 +75,9 @@ class Golum(Global_class):
 
     def check_for_item(self, map, icon):
         self.current_icon = icon
-        if self.current_icon == 'F' and self.hit_count == 30:
+        if self.current_icon == 'F' and self.hit_count == 20:
             return self.current_icon
-        elif self.current_icon == 'F' and self.hit_count < 30:
+        elif self.current_icon == 'F' and self.hit_count < 20:
             self.pick_fish()
             return ' '       
         elif self.current_icon == '/' or self.current_icon == '\\':

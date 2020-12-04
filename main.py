@@ -23,7 +23,7 @@ def create_player():
 
 def main():
     map = engine.create_board(LEVEL_NAME)
-    player = Golum(2, 'Gollum', '@')
+    player = Golum(20, 'Gollum', '@')
     enemy_list = lokking_for_enemy(map)
     #enemy_list = []
     while enemy_list:
@@ -42,7 +42,7 @@ def main():
         os.system('cls') 
 
         #coś tam do wyświetlenia
-        
+
         #ui.display_screen(map, enemy_list, player)
        
     
