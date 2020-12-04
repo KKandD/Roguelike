@@ -1,4 +1,5 @@
 from Global import *
+from questions_and_answers import *
 
 class Golum(Global_class):
 
@@ -8,6 +9,8 @@ class Golum(Global_class):
         self.icon = icon
         self.current_position = [1, 1]
         self.current_icon = ' '
+        self.door_list = [[9, 6], [12, 12], [16, 8]]
+        #self.question = question
         self.walk_sound = arcade.load_sound(Global_class.get_file_path("sounds/footstep3.ogg"))
         self.eat_sound = arcade.load_sound(Global_class.get_file_path("sounds/eating_fish.ogg"))
         self.door_sound = arcade.load_sound(Global_class.get_file_path("sounds/door_opening2.ogg"))
@@ -70,7 +73,7 @@ class Golum(Global_class):
             new_position = [self.current_position[0], self.current_position[1] + 1]
         return new_position # [1, 1]
 
-    def check_for_item(self, icon):
+    def check_for_item(self, map, icon):
         self.current_icon = icon
         if self.current_icon == 'F' and self.hit_count == 30:
             return self.current_icon
@@ -80,23 +83,34 @@ class Golum(Global_class):
         elif self.current_icon == '/' or self.current_icon == '\\':
             self.door_sound.play()
             return self.current_icon
-        # elif self.current_icon == 'Q':
-        #     question = random.choice(questions_dictionary(self))
-        #     self.ask_question(question)
-        #     if correct_answear:
-        #         self.hit_count += 2
-        #         return ' '
-        #     else:
-        #         self.hit_count -= 1
-        #         return self.current_icon
+        elif self.current_icon == '?':
+            os.system('cls')
+            index = random.randint(0, len(questions_list) - 1)
+            question = questions_list[index]
+            # index = random_index
+            # question = random_question
+            questions_dict = questions_dictionary
+            right_answer = questions_dict[question]
+            answers_array = answers
+            answer_show_list = answers_array[index]
+            for answer in answer_show_list:
+                print(answer, '\n')
+            print()
+            player_answer = self.get_player_input(question)
+            if player_answer == right_answer:
+                map[self.door_list[0][0]][self.door_list[0][1]] = '/'
+                self.door_list.pop(0)
+                self.current_icon = ' '
+            else:
+                self.current_icon = '?'
+            return self.current_icon
         else:
             return ' '
-
-    # def ask_question(self, question):
-    #     player_input = input()
-    #     pass
-
-    # def 
+    
+    
+    def get_player_input(self, question): 
+        player_input = input(question).lower()   
+        return player_input
 
 
     def player_close_enviroment_positions(self, position):
@@ -111,7 +125,7 @@ class Golum(Global_class):
         position_list = self.player_close_enviroment_positions(position)
         for element in position_list:
             icon = map[element[0]][element[1]]
-            if icon == 'H':
+            if icon == 'H' or icon == 'B':
                 return element
         else:
             return False
@@ -129,7 +143,7 @@ class Golum(Global_class):
         if letter and self.is_move_valid(next_field_icon):
             new_position = self.next_position(letter)
             map[self.current_position[0]][self.current_position[1]] = self.current_icon 
-            self.current_icon = self.check_for_item(next_field_icon)
+            self.current_icon = self.check_for_item(map, next_field_icon)
             self.current_position = new_position
             self.walk_sound.play()
             map[new_position[0]][new_position[1]] = self.icon 
@@ -139,7 +153,7 @@ class Golum(Global_class):
         position_list = self.player_close_enviroment_positions(position)
         for element in position_list:
             icon = map[element[0]][element[1]]
-            if icon == 'H':
+            if icon == 'H' or icon == 'B':
                 for element_object in enemy_list:
                     if element_object.current_position == [element[0], element[1]]:
                         enemy_list.remove(element_object)
