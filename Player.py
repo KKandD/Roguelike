@@ -11,7 +11,7 @@ class Golum(Global_class):
         self.current_icon = ' '
         self.door_list = [[9, 6], [12, 12], [16, 8]]
         #self.question = question
-        self.walk_sound = arcade.load_sound(Global_class.get_file_path("sounds/footstep3.ogg"))
+        self.walk_sound = arcade.load_sound(Global_class.get_file_path("sounds/footstep5.ogg"))
         self.eat_sound = arcade.load_sound(Global_class.get_file_path("sounds/eating_fish.ogg"))
         self.door_sound = arcade.load_sound(Global_class.get_file_path("sounds/door_opening2.ogg"))
         self.fight_sound = arcade.load_sound(Global_class.get_file_path("sounds/fight.ogg"))
