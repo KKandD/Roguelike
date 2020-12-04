@@ -22,7 +22,7 @@ def display_screen(board, player):
 
 
 def print_player_data(name = "Player", position = [0,0], hit_count = 0, score = 0, key = 0):
-    information_text = f"| Player name: {name} | {name} hit count: {hit_count} | {name} score: {score} | {name} position: {position} | key: {key} |"
+    information_text = f"| Player name: {name} | {name} hit count: {hit_count} | {name} score: {score} | {name} position: {position} |"
     print("-" * len(information_text) + "\n" + information_text + "\n" + "-" * len(information_text))
 
 class Style():
