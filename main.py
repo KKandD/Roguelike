@@ -39,6 +39,7 @@ def main():
         os.system('cls')
         winner = engine.create_winner_board(winner_board)
         ui.display_screen(winner, enemy_list, player = player)
+        time.sleep(7)
     elif player.is_game_over():
         os.system('cls') 
         loser = engine.create_winner_board(loser_board)
