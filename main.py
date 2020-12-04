@@ -11,6 +11,7 @@ PLAYER_START_X = 3
 PLAYER_START_Y = 3
 
 LEVEL_NAME = "Maps\\TestMap.txt"
+winner_board = "Maps\\Winner_text.txt"
 
 '''
 def create_player():
@@ -24,12 +25,17 @@ def main():
     map = engine.create_board(LEVEL_NAME)
     player = Golum(30, 'Gollum', '@')
     enemy_list = lokking_for_enemy(map)
-    while True:
+    #enemy_list = []
+    while enemy_list:
         time.sleep(0.02)
         os.system('cls')
-        ui.display_screen(map, player)
+        ui.display_screen(map, enemy_list, player)
         map, enemy_list = player.player_move(map, enemy_list)
         map = enemys_move(map, enemy_list)
+    os.system('cls')
+    winner = engine.create_winner_board(winner_board)
+    ui.display_screen(winner, enemy_list, player = player)
+    
         
 
 def lokking_for_enemy(map):

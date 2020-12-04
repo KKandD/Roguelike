@@ -9,6 +9,13 @@ def create_board(level_name):
         return file_text
     pass
 
+def create_winner_board(winner_board):
+    map_path = Global_class.get_file_path(winner_board)
+    with open(map_path,"r") as file:
+        file_text = file.read().split("\n")
+        for row in range(len(file_text)):
+            file_text[row] = list(file_text[row])
+        return file_text
 
 def put_player_on_board(board, player):
     '''
