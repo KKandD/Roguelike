@@ -1,8 +1,45 @@
-88888888ba   88                      88                                                88                 ad88                                                      88  
-88      "8b  ""                      88                                                88                d8"                             ,d                         88  
-88      ,8P                          88                                                88                88                              88                         88  
-88aaaaaa8P'  88  88,dPYba,,adPYba,   88,dPPYba,   88       88  8b,dPPYba,      ,adPPYb,88   ,adPPYba,  MM88MMM  ,adPPYba,  ,adPPYYba,  MM88MMM  ,adPPYba,   ,adPPYb,88  
-88""""""8b,  88  88P'   "88"    "8a  88P'    "8a  88       88  88P'   "Y8     a8"    `Y88  a8P_____88    88    a8P_____88  ""     `Y8    88    a8P_____88  a8"    `Y88  
-88      `8b  88  88      88      88  88       d8  88       88  88             8b       88  8PP"""""""    88    8PP"""""""  ,adPPPPP88    88    8PP"""""""  8b       88  
-88      a8P  88  88      88      88  88b,   ,a8"  "8a,   ,a88  88             "8a,   ,d88  "8b,   ,aa    88    "8b,   ,aa  88,    ,88    88,   "8b,   ,aa  "8a,   ,d88  
-88888888P"   88  88      88      88  8Y"Ybbd8"'    `"YbbdP'Y8  88              `"8bbdP"Y8   `"Ybbd8"'    88     `"Ybbd8"'  `"8bbdP"Y8    "Y888  `"Ybbd8"'   `"8bbdP"Y8  
+ _______ _    _ ______      _____  _____  ______ _____ _____ ____  _    _  _____ 
+|__   __| |  | |  ____|    |  __ \|  __ \|  ____/ ____|_   _/ __ \| |  | |/ ____|
+   | |  | |__| | |__       | |__) | |__) | |__ | |      | || |  | | |  | | (___  
+   | |  |  __  |  __|      |  ___/|  _  /|  __|| |      | || |  | | |  | |\___ \ 
+   | |  | |  | | |____     | |    | | \ \| |___| |____ _| || |__| | |__| |____) |
+   |_|  |_|  |_|______|    |_|    |_|  \_\______\_____|_____\____/ \____/|_____/
+                                                                                 
+MMMMMMMMMMMMMMMMMMMMMMO=. .  .  .    .,+8MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMM$..  . ..... .. ..............  .OMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMM+ ....       .       . ................  .?MMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMM~  ......    . ... .   ..   ...................  :MMMMMMMMMMMMMMMMMMMMMM
+MMMMMM...........     . ................................... .OMMMMMMMMMMMMMMMMMM
+MMMM:        .   .. .  .   ..    .  . ... . .  ...... .  .  .  .DMMMMMMMMMMMMMMM
+MMM.        .              .        ....... .  ......    .  .  ..,,MMMMMMMMMMMMM
+MM..    .   .   .IMMMMNZI=:,,,:~+$8MMMMNI.. .  ...... .. .  .  ... . MMMMMMMMMMM
+M ..... . .+MMI .. .                .. .. .=DMN?........ .... .... . ..MMMMMMMMM
+M ......:MD. ...  .         .       ... ... ..  ~MM$..   .  .  ...    ..$MMMMMMM
+$......D: ....  ........ ...... .................... 8MZ................  MMMMMM
++..  :8I+   ..   ...................................... ,MM .............. MMMMM
+O.. =:  Z8       .......................................... MM..............MMMM
+M ..8.  . M      .. ......... . . . ....... . .........  .  .  M?.  .........MMM
+M,..      .:M,   ................................................DM ..........MM
+MM. .         M~ .. .............................................. DN.........NM
+MMM N          .DM ..................................................M........7M
+MMMM=:            .MM........ ....................................... 8:......=M
+MMMMMN:      .   .....8M?.............................................D8......7M
+MMMMMMM          .. .....$MN, . ... ....... .  ...... .  .  .  ... .DM. M.....NM
+MMMMMMMM8.       ........... :DMN~. .........................  +MM$......,....MM
+MMMMMMMMMM$..................... . ,ZMMMMOI:,       .:?ZMMMMO,  ........ 7.. MMM
+MMMMMMMMMMMM$ ............................ .  . ...  . ................. :..MMMM
+MMMMMMMMMMMMMMN.........................................................M ZMMMMM
+MMMMMMMMMMMMMMMMMM ....................................................M,MMMMMMM
+MMMMMMMMMMMMMMMMMMMMM=.............................................. .NMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMM?.........................................7MMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZ, .............................. NMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNI.  .............. ,7MMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+		  _                   _              _ _ _ 
+		 (_)                 (_)            | | | |
+		  _ ___     _ __ ___  _ _ __   ___  | | | |
+		 | / __|   | '_ ` _ \| | '_ \ / _ \ | | | |
+		 | \__ \   | | | | | | | | | |  __/ |_|_|_|
+		 |_|___/   |_| |_| |_|_|_| |_|\___| (_(_(_)
+                                           
+                                         
