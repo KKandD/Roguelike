@@ -12,6 +12,7 @@ PLAYER_START_Y = 3
 
 LEVEL_NAME = "Maps\\TestMap.txt"
 winner_board = "Maps\\Winner_text.txt"
+loser_board = "Maps\\GameOver.txt"
 
 '''
 def create_player():
@@ -40,10 +41,8 @@ def main():
         ui.display_screen(winner, enemy_list, player = player)
     elif player.is_game_over():
         os.system('cls') 
-
-        #coś tam do wyświetlenia
-
-        #ui.display_screen(map, enemy_list, player)
+        loser = engine.create_winner_board(loser_board)
+        ui.display_screen(loser, enemy_list, player = player)
        
     
         
