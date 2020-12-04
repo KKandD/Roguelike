@@ -23,7 +23,7 @@ def create_player():
 
 def main():
     map = engine.create_board(LEVEL_NAME)
-    player = Golum(30, 'Gollum', '@')
+    player = Golum(2, 'Gollum', '@')
     enemy_list = lokking_for_enemy(map)
     #enemy_list = []
     while enemy_list:
@@ -32,9 +32,19 @@ def main():
         ui.display_screen(map, enemy_list, player)
         map, enemy_list = player.player_move(map, enemy_list)
         map = enemys_move(map, enemy_list)
-    os.system('cls')
-    winner = engine.create_winner_board(winner_board)
-    ui.display_screen(winner, enemy_list, player = player)
+        if player.is_game_over():
+            break
+    if not enemy_list and not player.is_game_over():
+        os.system('cls')
+        winner = engine.create_winner_board(winner_board)
+        ui.display_screen(winner, enemy_list, player = player)
+    elif player.is_game_over():
+        os.system('cls') 
+
+        #coś tam do wyświetlenia
+        
+        #ui.display_screen(map, enemy_list, player)
+       
     
         
 
